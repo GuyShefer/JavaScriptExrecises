@@ -19,6 +19,7 @@
     isLeapYear(2012);
     isLeapYear(2100);
     isLeapYear(2400);
+    isLeapYear(164);
 
 
 })();

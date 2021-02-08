@@ -6,25 +6,26 @@
         return sumOfScores / amountOfScores;
     }
 
-    let johnTeam = calcAvgScore(119, 120, 103);
-    let mikeTeam = calcAvgScore(116, 94, 123);
+    let johnTeamAvg = calcAvgScore(119, 120, 103);
+    let mikeTeamAvg = calcAvgScore(116, 94, 123);
 
-    let calcWinner = (num1, firstPlayer, num2, seconPlayer) => {
-        if (num1 > num2) {
-            console.log(`The Winner Is : ${firstPlayer}, with an average score of ${num1}.`)
+    let calcWinner = (avgTeamOne, firstPlayer, avgTeeamTwo, seconPlayer) => {
+        if (avgTeamOne > avgTeeamTwo) {
+            console.log(`The Winner Is : ${firstPlayer}, with an average score of ${avgTeamOne}.`)
         }
-        else if (num1 < num2) {
-            console.log(`The Winner Is : ${seconPlayer}, with an average score of ${num2}.`)
+        else if (avgTeamOne < avgTeeamTwo) {
+            console.log(`The Winner Is : ${seconPlayer}, with an average score of ${avgTeeamTwo}.`)
         }
         else {
             console.log(`There is now winner, its a draw!`)
         }
     }
 
-    calcWinner(johnTeam, 'John', mikeTeam, 'Mike');
+    calcWinner(johnTeamAvg, 'John', mikeTeamAvg, 'Mike');
 
-    let maryTeam = calcAvgScore(97, 134, 105);
+    let maryTeamAvg = calcAvgScore(97, 134, 105);
 
-    calcWinner(mikeTeam, 'Mike', maryTeam, 'Mary')
+    calcWinner(mikeTeamAvg, 'Mike', maryTeamAvg, 'Mary');
+    calcWinner(johnTeamAvg, 'John', maryTeamAvg, 'Mary');
 
 })();
