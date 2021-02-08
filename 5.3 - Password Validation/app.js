@@ -17,7 +17,14 @@
     }
 
     let hasCapitalLetter = password => {
-         return password == password.toUpperCase() && password != password.toLowerCase();
+        for (let i = 0; i < password.length; i++) {
+            if (isNaN(password[i])) {
+                if (password[i] == password[i].toUpperCase()) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     console.log(passwordValditonWithIfElse("1234567"));
@@ -26,12 +33,13 @@
     console.log("-----------")
 
     console.log(passwordValditonWithTernary("1234567"));
-    console.log(passwordValditonWithTernary("12345678"));
+    console.log(passwordValditonWithTernary("1234567A8"));
 
     console.log("-----------")
 
-    console.log(advPasswordValidation("A12345678"));
+    console.log(advPasswordValidation("1234G5678"));
     console.log(advPasswordValidation("12345678"));
     console.log(advPasswordValidation("123456"));
+    console.log(advPasswordValidation("123456asad"));
 
 })();
