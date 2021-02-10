@@ -1,6 +1,6 @@
 (function (){
 
-let countEven   = (num) => {
+let countEvenDigits = (num) => {
     let tempNum = num;
     let digit;
     let amountOfEvenDigits = 0;
@@ -14,6 +14,6 @@ let countEven   = (num) => {
     return amountOfEvenDigits;
 }
 
-console.log(countEven(1640));
+console.log(countEvenDigits(1640));
 
 })();
