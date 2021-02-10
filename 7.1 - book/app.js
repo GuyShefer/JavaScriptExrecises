@@ -1,10 +1,10 @@
 (function () {
 
      let book1 = {
-          author : "J.K. Rowling",
-          name : "Harry potter and the philosopher's stone",
-          numberOfPages : 309,
-          ReleaseYear : 1997,
+          author: "J.K. Rowling",
+          name: "Harry potter and the philosopher's stone",
+          numberOfPages: 309,
+          ReleaseYear: 1997,
           movieBasedOnTheBook: true,
      }
 

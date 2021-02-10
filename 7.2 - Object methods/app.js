@@ -14,7 +14,7 @@
 
           checkIsland: function () {
                mycountry.isIsland = false;
-               this.neighbours.length > 0 ? mycountry.isIsland = true : mycountry.isIsland = false;
+               this.neighbours.length > 0 ? this.isIsland = true : this.isIsland = false;
           },
      }
 
