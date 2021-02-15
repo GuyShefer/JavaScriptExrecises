@@ -1,29 +1,31 @@
 (function () {
 
-     let firstObj = {
-          name: 'Guy',
-     }
-     let seclondObj = {
-          name: 'Yuval',
-     }
-     let thirdObj = {
-          name: 'Eran',
-     }
+     let firstObj = { name: 'Guy', age: 25 }
+     let seclondObj = { name: 'Yuval', age: 25 }
+     let thirdObj = { name: 'Eran', age: 25 }
 
      const myMap = new Map();
-     myMap.set(firstObj, 1);
-     myMap.set(seclondObj, 2);
-     myMap.set(thirdObj, 3);
+     // myMap.set(key,value);
+     // myMap.has();
+     // myMap.size();
+     // myMap.delete();
 
-     for (const object of myMap) {
-          console.log(object);
+     myMap.set(1, firstObj);
+     myMap.set(2, seclondObj);
+     myMap.set(3, thirdObj);
+
+     for (const element of myMap) {
+          console.log(element);
      }
 
      console.log('----------');
 
-     for(const [name, id] of myMap) {
-          console.log(name,id);
+     console.log(myMap.get(thirdObj));
+
+     for (const [name, id] of myMap) {
+          console.log(name, id);
      }
 
+     // myMap.forEach(i => console.log(i));
 
 })();
