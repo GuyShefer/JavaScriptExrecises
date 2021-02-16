@@ -17,5 +17,14 @@
         i++;
     }
 
+    console.log("-----------")
+
+    let arr = ["boo", "doooo", "hoo","ro"] ;
+    let index = 0;
+    while(index < arr.length){
+        console.log(arr[index]);
+        index++
+    }
+
 
 })();
