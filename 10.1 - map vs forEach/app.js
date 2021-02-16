@@ -44,7 +44,6 @@
 
      let movieNameAndId2 = newReleases.map( movie => ({ id: movie.id, name:movie.title}));
 
-
      console.log(movieNameAndId2)
      
 })();
