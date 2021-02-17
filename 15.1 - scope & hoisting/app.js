@@ -28,4 +28,5 @@
     //  because console.log and var f is hoisitng before the funcE so the first console.log dont know f, and next line f will be define.
 
 
+
 })();
