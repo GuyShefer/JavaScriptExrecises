@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.main h4 {
+    margin-bottom: 20px;
+}
+
+.main .box {
+    border: 1px solid;
+    width: 300px;
+    height: 150px;
+    position: relative;
+}
+
+.input-numbers-box{
+    margin: 20px 0;
+}
+
+.input-numbers-box .input{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.box .btn {
+    width: 65px;
+    font-size: 18px;
+    padding: 3px;
+    margin-top: 40px;
+    border-radius: 3px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: 120px;
+}
+
+.box .btn:hover {
+    background: #333;
+}
