@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 24px;
+}
+
+input {
+    margin-bottom: 20px;
+    height: 22px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    font-size: 16px;
+}
+
+.btn {
+    width: 50%;
+    margin: auto;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid;
+    cursor: pointer;
+    font-size: 16px;
+}
