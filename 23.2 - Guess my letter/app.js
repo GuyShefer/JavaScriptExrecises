@@ -18,6 +18,7 @@
         guessList.textContent = '';
         rndLetterDisplay.textContent = '?'
         disapearTheText();
+        isWonDiv.style.display = "none";
     })
 
 
@@ -25,12 +26,12 @@
         e = e || window.event;
         let userGuessAsciiNumber = e.keyCode;
         disapearTheText();
+        userGuess = (String.fromCharCode(userGuessAsciiNumber)).toLowerCase();
 
         if (!isValidGuess(userGuessAsciiNumber)) {
             enterAValid.style.display = "block";
         }
-        userGuess = (String.fromCharCode(userGuessAsciiNumber)).toLowerCase();
-        if (isExistInTheArr(userGuess)) {
+        if (isExistInTheArr(userGuess) && rndLetter !== userGuess) {
             hasBeenGuessedTxt.style.display = "block";
             return;
         }
@@ -50,7 +51,6 @@
         hasBeenGuessedTxt.style.display = "none";
         RightLetterTxt.style.display = "none";
         wrongLetterTxt.style.display = "none";
-        isWonDiv.style.display = "none";
     }
 
     let isExistInTheArr = guess => {
