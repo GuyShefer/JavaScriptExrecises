@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.main h4 {
+    margin-bottom: 20px;
+}
+
+.box .btn {
+    width: 65px;
+    font-size: 18px;
+    padding: 3px;
+    margin-top: 40px;
+    border-radius: 3px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: 120px;
+}
+
+.box .btn:hover {
+    background: #333;
+}
+
+#wrongLetterTxt {
+    color: red;
+    display: none;
+}
+#hasBeenGuessed {
+    color: red;
+    display: none;
+}
+#enterAValid {
+    color: red;
+    display: none;
+}
+#RightLetter {
+    color: green;
+    display: none;
+}
+
+.isWonDiv {
+    display: none;
+}
+
+
