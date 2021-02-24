@@ -32,6 +32,7 @@
         userGuess = (String.fromCharCode(userGuessAsciiNumber)).toLowerCase();
         if (isExistInTheArr(userGuess)) {
             hasBeenGuessedTxt.style.display = "block";
+            return;
         }
         if (rndLetter === userGuess) {
             RightLetterTxt.style.display = "block"
