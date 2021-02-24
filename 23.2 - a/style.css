@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid;
+    font-size: 32px;
+}
+
+button {
+    margin: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 14px;
+    border: none;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+
+
+
+
