@@ -43,10 +43,6 @@
             <option value="${category}">${category}</option> `;
             select.appendChild(option);
         })
-
-        // let text = select.options[select.selectedIndex].text;
-        // console.log(text);
-
     }
 
     const selectedJokeUrl = 'https://api.chucknorris.io/jokes/random?category='
