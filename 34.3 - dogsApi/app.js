@@ -32,13 +32,17 @@
     getAmountOfDogsBtn.textContent = 'Get Amount Of Dogs';
     secondContainer.appendChild(input);
     secondContainer.appendChild(getAmountOfDogsBtn);
-
+    let imagesContainer = document.createElement('container');
+    secondContainer.appendChild(imagesContainer);
 
     getAmountOfDogsBtn.addEventListener('click', () => {
         try {
             if (input.value < 0 || input.value > 50) {
                 throw new Error("not a valid number");
             } else {
+                imagesContainer.remove();
+                imagesContainer = document.createElement('container');
+                secondContainer.appendChild(imagesContainer);
                 showAmountOfDogs(input.value);
             }
         } catch (err) {
@@ -48,13 +52,14 @@
     })
 
     async function showAmountOfDogs(num) {
+        
         const data = await (await fetch(dogUrl + '/' + num)).json();
-        console.log(data.message);
+        
         for (let i = 0; i < data.message.length; i++) {
             let img = document.createElement('div');
             img.classList.add('img');
             img.style.background = `url(${data.message[i]}) no-repeat center center/cover`;
-            secondContainer.appendChild(img);
+            imagesContainer.appendChild(img);
         }
     }
 
