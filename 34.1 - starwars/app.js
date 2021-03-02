@@ -45,24 +45,7 @@
         })
         container.appendChild(table);
     }
-    // const main = document.createElement('main');
-    // main.classList.add('main')
-    // main.textContent = 'asd'
-    // document.body.appendChild(main);
 
-    // const table = document.createElement('table');
-    // main.appendChild(table);
-
-    // let title = document.createElement("tr");
-    // title.textContent = 'Star Wars';
-
-    // for (let i = 0; i < 10; i++) {
-    //     let row = document.createElement("tr");
-    //     var cell = document.createElement("td");
-    //     cell.textContent = charactersArr[i];
-    //     row.appendChild(cell);
-    //     table.appendChild(row);
-    // }
 
 
 
