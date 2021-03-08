@@ -17,8 +17,20 @@
     }
 
     let dog = new Animal('Dog', 'bark');
-    let car = new Animal('Car', 'meow');
+    let cat = new Animal('Cat', 'meow');
     let bird = new Animal('Bird', 'tweet');
+
+    console.log(dog.getName());
+    console.log(dog.getSound());
+    dog.print();
+
+    console.log(cat.getName());
+    console.log(cat.getSound());
+    cat.print();
+
+    console.log(bird.getName());
+    console.log(bird.getSound());
+    bird.print();
 
 
 })();
