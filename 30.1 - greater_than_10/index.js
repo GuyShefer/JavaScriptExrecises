@@ -7,14 +7,19 @@
                     resolve('Greater then 10') :
                     reject('Less then 10');
             }, 300);
-        }).then(
-            function (value) { console.log(value) },
-            function (error) { console.log(error) }
-        )
+        })
     }
 
-    greaterThen10(20);
-    greaterThen10(10);
-    greaterThen10(8);
+    async function checkNum(num) {
+        try{
+            console.log(await greaterThen10(num));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    checkNum(20);
+    checkNum(10);
+    checkNum(8);
 
 })();
