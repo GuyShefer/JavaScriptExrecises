@@ -133,13 +133,13 @@
 
     const displayTaskInTheTable = task => {
         console.log(table);
-        table.innerHTML += 
-        `<td>${task.text}</td>
+        table.innerHTML +=
+            `<td>${task.text}</td>
         <td>${task.isCompleted}</td>
         <td>${task.importance}</td>
-        <td>${task.timeCreated}</td>
-        <td onclick="updateTask(1)"><i class="far fa-edit"></i></td>
-        <td onclick="deleteTask(1)"><i class="far fa-minus-square"></i></td>`
+        <td>${task.timeCreated.toLocaleString()}</td>
+        <td onclick="updateTask(${task.id})"><i class="far fa-edit"></i></td>
+        <td onclick="deleteTask(${task.id})"><i class="far fa-minus-square"></i></td>`
     }
 
     // reminderManager.addTask(new Task('feed the dog', 'A')); // create
