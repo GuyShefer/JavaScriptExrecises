@@ -51,15 +51,16 @@
             return task;
         }
 
-        updateTaskById(taskId, text) {
+        updateTaskById(taskId, text, isCompleted) {
             const task = this.getTaskById(taskId);
-            if (text === null || text.length < 1) {
-                throw new Error('Text is empty');
-            }
-            if (task.text === text) {
-                throw new Error('You have not changed anything');
-            }
+            // if (text === null || text.length < 1) {
+            //     throw new Error('Text is empty');
+            // }
+            // if (task.text === text) {
+            //     throw new Error('You have not changed anything');
+            // }
             task.setText(text);
+            task.isCompleted = isCompleted;
         }
 
         deleteTaskById(taskId) {
@@ -116,53 +117,100 @@
     const dropDown = document.querySelector('#importance');
     const table = document.querySelector('#table-body');
     let reminderManager = JSON.parse(localStorage.getItem('todo-list'));
+    const modal = document.querySelector("#myModal");
+    const span = document.querySelector(".close");
+    const updateText = document.querySelector('#update-text');
+    const updateIsCompleted = document.querySelector('#update-completed');
+    const updateBtn = document.querySelector('.update-btn');
 
     if (reminderManager === null) {
         reminderManager = new ReminderManager();
     }
+    printAllTheTable();
 
-    // console.log(textInput);
     addNewTaskBtn.addEventListener('click', () => {
         const text = textInput.value; // text value
         const importance = dropDown.value; // A,B,C
         const task = new Task(text, importance);
         reminderManager.addTask(task);
-        displayTaskInTheTable(task);
+        printAllTheTable();
+        // have to override the local storage object
         form.reset(); // clear the form
     })
 
-    const displayTaskInTheTable = task => {
-        console.log(table);
-        table.innerHTML +=
-            `<td>${task.text}</td>
+    function printAllTheTable() {
+        table.innerHTML = `<tr>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Importance</th>
+        <th>Date</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>`;
+        reminderManager.tasks.forEach(task => {
+            table.innerHTML +=
+                `<td>${task.text}</td>
         <td>${task.isCompleted}</td>
         <td>${task.importance}</td>
         <td>${task.timeCreated.toLocaleString()}</td>
         <td onclick="updateTask(${task.id})"><i class="far fa-edit"></i></td>
         <td onclick="deleteTask(${task.id})"><i class="far fa-minus-square"></i></td>`
+        })
     }
 
-    // reminderManager.addTask(new Task('feed the dog', 'A')); // create
-    // reminderManager.addTask(new Task('buy some T-shirts', 'B')); // create
-    // reminderManager.addTask(new Task('buy some Jeans', 'A')); // create
-    // reminderManager.addTask(new Task('buy some underwear', 'C')); // create
 
-    // console.log(reminderManager);
-    // console.log("~~~~~~~~~~~~~~~~~");
-    // console.log(reminderManager.getTaskById(1)) // read
 
-    // reminderManager.updateTaskById(1, 'buy some pants'); // update
+    updateTask = (id) => {
+        modal.style.display = "block"; // open modal
+        updateText.value = '';
+        updateTaskById = () => {
+            console.log(updateText.value, updateIsCompleted.checked);
+            reminderManager.updateTaskById(id, updateText.value, updateIsCompleted.checked);
+            printAllTheTable();
+            modal.style.display = "none";
+        }
+        
+        updateIsCompleted.checked = false;
+        
+        // have to override the local storage object and print all the table
+    }
 
-    // console.log(reminderManager.getTaskById(1)) // read
-    // console.log("~~~~~~~~~~~~~~~~~");
-    // console.log(reminderManager);
-    // console.log("~~~~~~~~~~~~~~~~~");
-    // reminderManager.deleteTaskById(2); // delete
-    // reminderManager.marksAsDoneById(1)
-    // // console.log(reminderManager);
+
+    deleteTask = (id) => {
+        reminderManager.deleteTaskById(id);
+        printAllTheTable();
+        // have to override the local storage object and print all the table
+    }
+
+    const sortListBtn = document.querySelector('#sort-list-btn');
+    const sortDropDown = document.querySelector('#sort');
+    sortListBtn.addEventListener('click', () => {
+        const sortOption = sortDropDown.value;
+        switch (sortOption) {
+            case 'completed':
+                reminderManager.getAllTasksSortedByDones();
+                break;
+            case 'importance':
+                reminderManager.getAllTasksSortedByImportance();
+                break;
+            case 'newest':
+                reminderManager.getAllSortedByDate();
+        }
+        printAllTheTable();
+    })
+
     // // console.log('asd',reminderManager.getAllTask());
     // console.log(reminderManager.getAllTasksSortedByDones()); // sort by done to undone
     // console.log(reminderManager.getAllTasksSortedByImportance()); // sort by Importance
     // // console.log(reminderManager.getAllSortedByDate()); // have to check if works
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
 })();

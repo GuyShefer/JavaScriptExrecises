@@ -36,6 +36,16 @@
         </form>
     </section>
 
+    <div class="sort-list">
+        <p>Sort By:</p>
+        <select name="sort" id="sort">
+            <option value="completed">Completed</option>
+            <option value="importance">Importance</option>
+            <option value="newest">Newest</option>
+        </select>
+        <button id="sort-list-btn">Show</button>
+    </div>
+
     <section class="tasks-table">
         <table class="table">
             <tbody id="table-body">
@@ -50,5 +60,21 @@
             </tbody>
         </table>
     </section>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-div">
+                <label for="text">Fill new task's text:</label>
+                <input type="text" name="text" id="update-text">
+            </div>
+            <div class="modal-div">
+                <label for="completed">Is it Done?</label>
+                <input type="checkbox" name="completed" id="update-completed">
+            </div>
+            <button class="update-btn" onclick="updateTaskById()">Update</button>
+        </div>
+    </div>
 
 </body>
