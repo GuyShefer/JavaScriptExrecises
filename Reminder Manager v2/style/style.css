@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body .header {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+body .new-task,
+body .tasks-table {
+    margin-top: 20px;
+}
+
+body .new-task form,
+body .tasks-table .table {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+body .new-task form .text,
+body .new-task form .importance {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#text, #importance {
+    width: 300px;
+    height: 28px;
+    border: 1px solid #131313;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#importance {
+    width: 120px;
+}
+
+.submit {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #131313;
+    border-radius: 5px;
+    margin-top: 45px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: #c9c4c4;
+}
+
+/* Table */
+
+body .tasks-table {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    height: 400px;
+}
+
+.table, th ,td{
+    width: 700px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+table, th:nth-child(1){
+    width: 60%
+}
+
+table, th:nth-child(4){
+ width: 20%;
+}
+
+.far {
+    cursor: pointer;
+}
+
+.fa-edit {
+    color: blue;
+}
+
+.fa-minus-square {
+    color: red;
+}
