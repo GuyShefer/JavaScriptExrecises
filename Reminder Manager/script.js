@@ -5,6 +5,7 @@
         constructor(text) {
             this.id = Task.counter++;
             this.text = text;
+            this.isCompleted = false;
         }
 
         setText(text) {
@@ -18,9 +19,6 @@
         }
 
         addTask(task) {
-            // have to check if the task isnt exist
-            // have to check if the task isnt null
-            // have to check if the task's description isnt empty
             if (task === null) {
                 throw new Error('Task is empty');
             }
@@ -38,9 +36,6 @@
         }
 
         getTaskById(taskId) {
-            // have to check if the id is more then 0
-            // have to check if the id exist.
-            // have to return the task from the list
             const task = this.isTaskExistById(taskId);
             if (taskId < 0) {
                 throw new Error('Task id can not be negative');
@@ -55,9 +50,6 @@
         }
 
         updateTaskById(taskId, text) {
-            // get the task from the function  > getTask
-            // check if the new task description is not empty
-            // replace the tasks in the arr.
             const task = this.getTaskById(taskId);
             if (text === null || text.length < 1) {
                 throw new Error('Text is empty');
@@ -76,12 +68,31 @@
                 }
             }
         }
+
+        marksAsDoneById(taskId) {
+            const task = this.getTaskById(taskId);
+            task.isCompleted = true;
+        }
+
+        unMarksAsDoneById(taskId) {
+            task = this.getTaskById(taskId);
+            task.isCompleted = true;
+        }
+
+        getAllTask() {
+            if (this.tasks.length < 1) {
+                return 'The Todo list is empty';
+            }
+            return this.tasks.sort((a, b) => a.isCompleted - b.isCompleted);
+        }
     }
 
     const reminderManager = new ReminderManager();
 
     reminderManager.addTask(new Task('feed the dog')); // create
     reminderManager.addTask(new Task('buy some T-shirts')); // create
+    reminderManager.addTask(new Task('buy some Jeans')); // create
+    reminderManager.addTask(new Task('buy some underwear')); // create
 
     console.log(reminderManager);
     console.log("~~~~~~~~~~~~~~~~~");
@@ -93,6 +104,8 @@
     console.log("~~~~~~~~~~~~~~~~~");
     console.log(reminderManager);
     console.log("~~~~~~~~~~~~~~~~~");
-    reminderManager.deleteTaskById(0); // delete
-    console.log(reminderManager);
+    reminderManager.deleteTaskById(2); // delete
+    reminderManager.marksAsDoneById(1)
+    // console.log(reminderManager);
+    console.log(reminderManager.getAllTask());
 })();
