@@ -121,12 +121,20 @@
     const span = document.querySelector(".close");
     const updateText = document.querySelector('#update-text');
     const updateIsCompleted = document.querySelector('#update-completed');
-    const updateBtn = document.querySelector('.update-btn');
 
     if (reminderManager === null) {
         reminderManager = new ReminderManager();
+        console.log( reminderManager instanceof ReminderManager);
+    } 
+    else {
+        let docs = reminderManager;
+        reminderManager = new ReminderManager();
+        Object.assign(reminderManager, docs)
+        console.log(reminderManager);
     }
+    console.log( reminderManager instanceof ReminderManager);
     printAllTheTable();
+    
 
     addNewTaskBtn.addEventListener('click', () => {
         const text = textInput.value; // text value
@@ -134,8 +142,10 @@
         const task = new Task(text, importance);
         reminderManager.addTask(task);
         printAllTheTable();
+        localStorage.setItem('todo-list', JSON.stringify(reminderManager));
         // have to override the local storage object
         form.reset(); // clear the form
+        
     })
 
     function printAllTheTable() {
@@ -171,7 +181,7 @@
         }
         
         updateIsCompleted.checked = false;
-        
+        localStorage.setItem('todo-list', JSON.stringify(reminderManager));
         // have to override the local storage object and print all the table
     }
 
@@ -179,6 +189,7 @@
     deleteTask = (id) => {
         reminderManager.deleteTaskById(id);
         printAllTheTable();
+        localStorage.setItem('todo-list', JSON.stringify(reminderManager));
         // have to override the local storage object and print all the table
     }
 
