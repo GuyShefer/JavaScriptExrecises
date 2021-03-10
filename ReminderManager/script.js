@@ -1,5 +1,6 @@
 (function () {
 
+
     class Task {
         static counter = 0;
         constructor(text) {
@@ -26,6 +27,7 @@
                 throw new Error('Task`s description is empty');
             }
             this.tasks.push(task);
+            return 1;
         }
 
         isTaskExistById(id) {
@@ -87,25 +89,34 @@
         }
     }
 
-    const reminderManager = new ReminderManager();
+    // const reminderManager = new ReminderManager();
 
-    reminderManager.addTask(new Task('feed the dog')); // create
-    reminderManager.addTask(new Task('buy some T-shirts')); // create
-    reminderManager.addTask(new Task('buy some Jeans')); // create
-    reminderManager.addTask(new Task('buy some underwear')); // create
+    // reminderManager.addTask(new Task('feed the dog')); // create
+    // reminderManager.addTask(new Task('buy some T-shirts')); // create
+    // reminderManager.addTask(new Task('buy some Jeans')); // create
+    // reminderManager.addTask(new Task('buy some underwear')); // create
 
-    console.log(reminderManager);
-    console.log("~~~~~~~~~~~~~~~~~");
-    console.log(reminderManager.getTaskById(1)) // read
-
-    reminderManager.updateTaskById(1, 'buy some pants'); // update
-
-    console.log(reminderManager.getTaskById(1)) // read
-    console.log("~~~~~~~~~~~~~~~~~");
-    console.log(reminderManager);
-    console.log("~~~~~~~~~~~~~~~~~");
-    reminderManager.deleteTaskById(2); // delete
-    reminderManager.marksAsDoneById(1)
     // console.log(reminderManager);
-    console.log(reminderManager.getAllTask());
+    // console.log("~~~~~~~~~~~~~~~~~");
+    // console.log(reminderManager.getTaskById(1)) // read
+
+    // reminderManager.updateTaskById(1, 'buy some pants'); // update
+
+    // console.log(reminderManager.getTaskById(1)) // read
+    // console.log("~~~~~~~~~~~~~~~~~");
+    // console.log(reminderManager);
+    // console.log("~~~~~~~~~~~~~~~~~");
+    // reminderManager.deleteTaskById(2); // delete
+    // reminderManager.marksAsDoneById(1)
+    // // console.log(reminderManager);
+    // console.log(reminderManager.getAllTask());
+
+    // module.exports = ReminderManager;
+    // module.exports = Task;
+
+    module.exports = {
+        ReminderManager: ReminderManager,
+        Task: Task,
+    };
+
 })();
