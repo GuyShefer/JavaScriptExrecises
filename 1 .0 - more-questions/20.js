@@ -1,8 +1,12 @@
 (function () {
 
-    let missingNum = (randomArr) => {
-        return 55 - randomArr.reduce((accumulator, currentValue) => accumulator + currentValue);
-    }
 
-    console.log(missingNum([4, 3, 6, 5, 1, 2, 8, 9, 0, 10]));
+    // const arr = [4, 1, 4, 1, 2];
+    const arr = [2, 2, 1];
+    const res = arr.reduce((accumulator, currentValue) => {
+        return accumulator ^ currentValue
+    }, 0)
+    console.log(res);
 })();
+
+
